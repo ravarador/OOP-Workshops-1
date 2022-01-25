@@ -1,11 +1,13 @@
 // Workshop 1 - Linkage, Storage Duration, Namespaces, and OS Interface
 // Michael Huang - 2021/11/28
-
+#define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <iomanip>
 #include <fstream>
 #include "foodorder.h"
 #include "foodorder.h"
+
+using namespace std;
 
 /* input file format: a comma separated set of fields with a consistent format of
 <Order Tag>,<Customer Name>,<Order Description>,<Price>,<Daily Special Status>
@@ -22,7 +24,7 @@
 // TODO: write the prototype for the main function
 //         to accept command line arguments
 
-{
+int main(int argc, char* argv[]) {
 	std::cout << "Command Line:\n";
 	std::cout << "--------------------------\n";
 	// TODO: print the command line here, in the format
@@ -30,7 +32,10 @@
 	//   2: second argument
 	//   3: third argument
 	//   ...
-
+	int i;
+	for (i = 0; i < argc; i++) {
+		cout << right << setw(3) << i + 1 << ": " << argv[i] << endl;
+	}
 
 	std::cout << "--------------------------\n\n";
 
@@ -45,11 +50,11 @@
 	{
 
 		// Rates change from day 1 to day 2
-		if (day == 1){
+		if (day == 1) {
 			g_taxrate = 0.13;
 			g_dailydiscount = 1.15;
 		}
-		else{
+		else {
 			g_taxrate = 0.14;
 			g_dailydiscount = 1.20;
 		}
@@ -70,27 +75,27 @@
 		// loop through each order in the file
 		while (in) {
 
-				// read in the ordertag
-				in >> ordertag;
-				// skip the delimiter
-				in.ignore();
+			// read in the ordertag
+			in >> ordertag;
+			// skip the delimiter
+			in.ignore();
 
-				// end of the file
-				if (in.fail())
-					break;
+			// end of the file
+			if (in.fail())
+				break;
 
-				// read in the rest of the data as a FoodOrder
-				currentOrder.read(in);
+			// read in the rest of the data as a FoodOrder
+			currentOrder.read(in);
 
-				// Handle the in house and delivery orders differently
-				if (ordertag == 'I') {
-					sdds::FoodOrder copy = currentOrder;
-					copy.display();
-				}
-				else if (ordertag == 'D'){ // adds the delivery orders to the record
-					recordedDeliveryOrders[numDeliveries++] = currentOrder;
-					currentOrder.display();
-				}
+			// Handle the in house and delivery orders differently
+			if (ordertag == 'I') {
+				sdds::FoodOrder copy = currentOrder;
+				copy.display();
+			}
+			else if (ordertag == 'D') { // adds the delivery orders to the record
+				recordedDeliveryOrders[numDeliveries++] = currentOrder;
+				currentOrder.display();
+			}
 		}
 	}
 

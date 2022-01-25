@@ -1,0 +1,43 @@
+/*
+	Name: Jexequiel Ravni Arador
+	Email: jrarador@myseneca.ca
+	ID: 127168219
+	Date Completed: January 19, 2022
+
+	I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*/
+
+In this workshop, I learned how to implement arguments on main function, use internal and external linkages, and use the string type from the std namespace. 
+
+First, in the main program, I added parameters on the main function so it will take the file names of the text files that will be read. 
+
+// main(int argc, char* argv[])
+
+Second, I created a class FoodOrders that will be used by the main function. In that class, I added extern variables that will be used globally by any files that includes the header of the FoodOrder. 
+
+// extern double g_taxrate;
+// extern double g_dailydiscount;
+
+In that class again, I declared a static int variable named 'counter' that is meant to be used only within the FoodOrder implementation file (.cpp) hence it is static. 
+
+// static int counter = 0;
+
+Finally, in order to comply with the requirements of part 2, I refactored the code in FoodOrder to use a char* (char pointer) type foodDesc. 
+
+// char* m_foodDesc{};
+
+A char pointer is useful when you do not know the exact size of a string input. By using char pointers, you can dynamically allocate or set the size of a char array. 
+
+In the code snippet below, I set the m_foodDesc pointer into a char array with length of foodDesc + 1. 
+//m_foodDesc = new char[strlen(foodDesc) + 1];
+
+The most common rule with dynamically allocated pointers is that whenever you allocate a pointer, you also need to deallocate it otherwise it will result in a memory leak.
+To deallocate a pointer, delete[] keyword is used. In my program's case, the deallocation happens in the destructor. 
+//FoodOrder::~FoodOrder() {
+//	if (m_foodDesc != nullptr)
+//	delete[] m_foodDesc;
+//};
+
+So in this workshop, I was able to refresh my c++ coding knowledge and also learn new things such as linkages and arguments in main function.
+
+Note: Text after '//' are code snippets to support my explanations.
