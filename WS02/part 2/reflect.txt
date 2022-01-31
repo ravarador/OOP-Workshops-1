@@ -1,0 +1,35 @@
+/*
+	Name: Jexequiel Ravni Arador
+	Email: jrarador@myseneca.ca
+	ID: 127168219
+	Date Completed: 27/01/2022
+
+	I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*/
+
+In this workshop, I was able to apply what I learned in OOP244 such as file streams, rule of 3, and learned new concepts such as using the std::chrono library, and implementing and understanding move().
+
+If in copying implements the rule of 3, then in moving, rule of 5 is implemented. 
+
+// RULE OF FIVE : Copy Constructor, User Defined Copy Assignment Operator, Destructor, Move Constructor, Move Operator
+		ProteinDatabase(const ProteinDatabase& obj);
+		ProteinDatabase& operator=(const ProteinDatabase& obj);
+		~ProteinDatabase();
+		ProteinDatabase(ProteinDatabase&& obj) noexcept;
+		ProteinDatabase& operator=(ProteinDatabase&& src) noexcept;
+
+In this result, it clearly shows that moving is much faster than copying.
+
+--------------------------
+Execution Times:
+--------------------------
+  0-arg Constructor            500
+  1-arg Constructor     7311292300
+  Copy Constructor        35385300
+  Copy Assignment         31474400
+  Move Constructor             500
+  Move Assignment              800
+  Destructor              44884000
+--------------------------
+
+So why is it faster? Based on this workshop, my conclusion is that moving is faster because it only takes the pointer without duplicating the contents while copying requires allocating its own memory then copying the whole memory into that memory block.
