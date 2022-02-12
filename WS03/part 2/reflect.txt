@@ -1,0 +1,31 @@
+/*
+	Name: Jexequiel Ravni Arador
+	Email: jrarador@myseneca.ca
+	ID: 127168219
+	Date Completed: February 03, 2022
+
+	I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*/
+
+In this workshop, I learned how to design and code a class template, template a class variable, specialize a templated class variable for a particular type, instantiate a template  class, specialize a member function of a templated class to process a particular type, and derive a templated class from another templated class.
+
+In Pair module, I added a function, two overloaded operators and a default constructor. 
+
+First is the display() function and the insertion operator overload.
+
+// virtual std::ostream& display(std::ostream& os = std::cout) const;
+// std::ostream& operator<<(std::ostream& os, const Pair& pair);
+
+These two come together. Whenever the insertion is called with Pair as parameter, it calls the display function. I added these two because in the main function, the insertion is called with the Pair object with the purpose of displaying/printing the object.
+
+Next thing I added is the comparison == operator. 
+
+// bool operator==(const Pair& pair) const;
+
+I added this operator only in part 2 of the workshop. The purpose of this is to prevent adding an item if it already exists in the Set.
+
+Lastly in Pair module, I added a default constructor to initialize the values to their default values. 
+
+The Collection and Set modules are created only in a header file. Why is that? It is because it is template file and it is a bad practice to split the template files into header and implementation .cpp files.
+
+The reason why I specialized the add() member function is because the same logic in the generic template won't work when the parameter is a double or floating point. In order to fix that issue, I need to specialized the add() member function to a double type. In that double type, I implemented a different approach in comparing the items of the array. Here, instead of comparing it directly, I subtracted them to get the difference and if the value is smaller or equal to 0.01 then it is considered as equals.
