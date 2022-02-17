@@ -151,7 +151,7 @@ Design and code a class named `Processor` that stores the following information 
 ***Public Members***
 
 - a custom constructor that takes the address of the hosting central unit, the brand, code, and power of the microprocessor as arguments and uses this data to initialize the processor.
-- `void run()` - perform `m_power` units of work on the job assigned to this processor. If the job is completed, clear and remove the job assigned to this processor. If an `std::underflow_error` occurs, handle it by logging an error using the hosting central unit with the message `Processed over quota for ` followed by the job details, and then clearing and removing the job assigned to this processor. This member does nothing if the processor isn't hosted or no job is assigned to it.
+- `void run()` - if a job has been assigned to this processor first check if it has been completed, it if has then it can be cleared and removed from this processor. If it is incomplete then perform `m_power` units of work on the job assigned to this processor. If an `std::underflow_error` occurs, handle it by logging an error using the hosting central unit with the message `Processed over quota for ` followed by the job details, and then clearing and removing the job assigned to this processor. This member does nothing if the processor isn't hosted or no job is assigned to it.
 - `explicit operator bool() const` - a true/false representation of the processor that returns `true` if a job is assigned to it, `false` otherwise.
 - `Processor& operator+=(Job*&)` - assigns a job to the processor. Report an exception if there is a job already assigned.
 - `Job* get_current_job() const` - a query that returns the job currently assigned to the processor.
