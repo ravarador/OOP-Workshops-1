@@ -37,7 +37,8 @@ int main(int argc, char** argv) {
 
     try {
         sdds::CentralUnit<sdds::Processor> fake_host("fake", "invalid file");
-    } catch (std::invalid_argument& e) {
+    }
+    catch (std::invalid_argument& e) {
         std::cout << "**EXPECTED EXCEPTION: " << e.what() << std::endl;
     }
 
@@ -45,18 +46,19 @@ int main(int argc, char** argv) {
 
     try {
         sdds::CentralUnit<sdds::Processor> test_host = *cpu;
-    } catch (...) {
+    }
+    catch (...) {
         std::cout << "**EXPECTED EXCEPTION: Central Unit cannot be copy-assigned." << std::endl;
     }
 
     if (std::is_copy_assignable<sdds::CentralUnit<sdds::Processor>>::value) {
         std::cout << "**EXCEPTION: Central Unit should not support copy operations.\n"
-                  << std::endl;
+            << std::endl;
     }
 
     if (!std::is_move_constructible<sdds::CentralUnit<sdds::Processor>>::value || !std::is_move_assignable<sdds::CentralUnit<sdds::Processor>>::value) {
         std::cout << "**EXCEPTION: Central Unit should support move operations.\n"
-                  << std::endl;
+            << std::endl;
     }
 
     cpu->display();
@@ -80,7 +82,8 @@ int main(int argc, char** argv) {
     std::cout << "Successfully added 4 jobs to the queue." << std::endl;
     try {
         *cpu += "Divide 2 integers";
-    } catch (...) {
+    }
+    catch (...) {
         std::cout << "**EXPECTED EXCEPTION: Job queue is full." << std::endl;
     }
 
@@ -96,16 +99,17 @@ int main(int argc, char** argv) {
     try {
         sdds::Processor* mv = (*cpu)["Add a file"];
         (void)mv;  // supress unused variable warning
-    } catch (std::out_of_range& e) {
+    }
+    catch (std::out_of_range& e) {
         std::cout << "**EXPECTED EXCEPTION: " << e.what() << std::endl
-                  << std::endl;
+            << std::endl;
     }
 
     std::cout << "CPU run #2" << std::endl;
     cpu->run();
     cpu->display();
     std::cout << std::endl
-              << std::endl;
+        << std::endl;
 
     sdds::Processor* dvp = (*cpu)["Divide 2 integers"];
     std::cout << "**Confirmed " << *dvp << " in CPU\n\n";

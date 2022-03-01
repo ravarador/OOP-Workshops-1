@@ -1,0 +1,48 @@
+﻿/*
+	Name: Jexequiel Ravni Arador
+	Email: jrarador@myseneca.ca
+	ID: 127168219
+	Date Completed: February 26, 2022
+
+	I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*/
+
+According to a tutorial website (https://www.tutorialspoint.com/design_pattern/observer_pattern.htm), Observer pattern is used when there is one-to-many relationship between objects such as if one object is modified, its dependent objects are to be notified automatically.
+In my code, the Processor and CentralUnit classes are dependent on the Job class, therefore they are the observers. Whenever Job class is modified, the observers are notified. Job class is the subject.
+
+Why did we need to use an std::function object? What are the pros and cons of using it (mention at least 1 of each)?
+- A function object, or functor, is any type that implements operator(). (https://docs.microsoft.com/en-us/cpp/standard-library/function-objects-in-the-stl?view=msvc-170)
+In my code, the Job class is a function object. 
+	void operator()(size_t unitsOfWorkHandled);
+
+PROS : By overloading the operator(), the Job class will be able to update its observers Processor and CentralUnit.
+CONS : A function has no instance state because there is no such thing as multiple instances of a function; there will always be one instance, and it is global. (https://dev.to/pratikparvati/function-object-aka-functors-in-c-456j)
+
+How can C++ templates be used instead of an std::function object to store a function?
+- The templated function will determine the appropriate type for the functor or function pointer, and because both functors and function pointers are used in the same way, they both look like function calls. (https://dev.to/pratikparvati/function-object-aka-functors-in-c-456j)
+
+Your code reports and handles different types of exceptions. How would you modify your code to only report exceptions of the same data type and handle them appropriately? How would you differentiate between the different exceptions in this case?
+- I would use try catch with multiple catch to catch every possible exceptions.
+
+try
+{
+    // throws something
+}
+catch ( const MostSpecificException& e )
+{
+    // handle custom exception
+}
+catch ( const LessSpecificException& e )
+{
+    // handle custom exception
+}
+catch ( const std::exception& e )
+{
+    // standard exceptions
+}
+catch ( ... )
+{
+    // everything else
+}
+
+https://stackoverflow.com/questions/2512931/catch-multiple-custom-exceptions-c

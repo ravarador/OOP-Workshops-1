@@ -1,11 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WS01",
-    "\\WS02",
     "\\WS03",
-    "\\WS03\\part 2"
+    "\\WS03\\part 2",
+    "\\WS04",
+    "\\WS04\\part1",
+    "\\WS04\\part2",
+    "\\WS05",
+    "\\WS05\\part 1",
+    "\\WS05\\part 2"
   ],
-  "SelectedNode": "\\WS03\\part 2",
   "PreviewInSolutionExplorer": false
 }
