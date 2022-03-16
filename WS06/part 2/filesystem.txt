@@ -1,4 +1,4 @@
-images/cat.jpg    | This is an image of a cute cat!
+﻿images/cat.jpg    | This is an image of a cute cat!
     images/dog.jpg |     This file contains a picture of a dog running on an open field.
 images/.flamingo.gif   |     A beautiful flamingo moving its head from side to side looking for something   
 images/pngs/elephant.png   | An elephant

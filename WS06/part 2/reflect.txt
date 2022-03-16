@@ -1,0 +1,27 @@
+﻿/*
+	Name: Jexequiel Ravni Arador
+	Email: jrarador@myseneca.ca
+	ID: 127168219
+	Date Completed: March 12, 2022
+
+	I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*/
+
+In this workshop I was able to demonstrate my abilities and knowledge in managing polymorphic objects using the vector container of the STL, moving a dynamically allocated object into a container, coding a range-based iteration on the objects in a container, and reporting and handling an exception.
+I struggled in fixing memory leaks in my valgrind, but thanks to prof Hong's help, the issue was fixed and I learned a new thing in managing memory allocations. 
+
+Why do you need to deallocate the dynamically allocated memory in your vector of resources?
+- A vector will not deallocate the dynamically allocated objects stored inside it. In order to avoid a memory leak, the contents of the vector should be deallocated manually.
+In this code snippet, m_contents is a vector with dynamically allocated objects stored into it. To deallocate the objects, an iteration should be done.
+			for (auto i : m_contents) {
+				delete i;
+			}
+
+In this code snippet, the m_contents vector will be cleared or its items will be removed. This will only clear the vector and not deallocate the objects inside it. If not manually deallocated one by one, this will result in a indirectly lost memory.
+			m_contents.clear();
+
+To call specific functions for a Directory objects stored in a Resource*, what special C++ operation did you have to do and why?
+- dynamic_cast<>() is the special C++ operation I used in order to make sure that the program is treating the Resource object as a Directory.
+
+In this workshop you had to use std::vector<sdds::Resource*> to store a collection of filesystem resources as pointers. Could you have used std::vector<sdds::Resource> instead? 
+No. In this workshop, we need the pointer of the Resource so we can dynamically cast (dynamic_cast) them into either a directory or a file. 
