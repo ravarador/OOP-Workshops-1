@@ -81,7 +81,7 @@ The `EmpProfile` module holds employee, salary and correct wages information.
 - The `Salary` structure holds employee SIN and current salary.  
 - The `EmployeeWage` structure holds employee name and employee salary. 
 
-**Your Task:** Add a `rangeValidator()` function to the `EmploeeWage` type.  Your function reports an exception if the object’s salary is more than 9999 or less than 0. Your function receives nothing and returns nothing.
+**Your Task:** Add a `rangeValidator()` function to the `EmploeeWage` type.  Your function reports an exception if the object’s salary is more than 99999 or less than 0. Your function receives nothing and returns nothing.
 
 
 
@@ -156,7 +156,7 @@ The second part of this workshop upgrades your solution to use smart pointers.
 
 Your tasks for this part of the workshop are:
 - Add an operator `+=` overload to the `GeneratingList` module using smart pointer syntax
-- Complete the `WriteSmart()` function in the `EmpProfile` module using smart pointer syntax
+- Complete the `WriteSmart()` function in the `WritingRecord` module using smart pointer syntax
 
 These two functions should do the same thing as the raw pointer version, but using **unique smart pointers** instead.
 
