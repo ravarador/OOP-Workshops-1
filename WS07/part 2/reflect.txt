@@ -1,0 +1,31 @@
+/*
+	Name: Jexequiel Ravni Arador
+	Email: jrarador@myseneca.ca
+	ID: 127168219
+	Date Completed: March 20, 2022
+
+	I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*/
+
+In this workshop, I was able to demonstrate the following:
+1. Copy data from a file into a sequential container
+2. Use the numeric library to accumulate data values
+3. Use a lambda expression to specify an operation on each value in a data set
+4. Use the algorithm library to sort data values
+
+Q1: list all the STL functions that you have used in this workshop; explain your reasoning for choosing each one, and not another.
+Answer: 
+The STL functions that I used are:
+1. for_each - I used this function whenever I need to iterate to all items in the container. 
+2. sort - I can also use for_each here then apply the manual sorting logic but why would I reinvent the wheel? Using sort function is much easier.
+3. transform - I used transform because I want to change some of the items in container. I can also use copy_if here but that would be twice the process. 
+4. any_of - Not much of a difference between any_of and none_of but I used any_of because the inCollection function is asking if ANY city contains that variant. 
+5. copy_if - I do not want to use transform here because it will change the original list. So, I used this copy_if function to create a copy of vector of Covid items. 
+
+Q2: present the advantages of using STL algorithms vs. implementing the functionality by yourself using loops.
+Answer:
+STL algorithms are made by experts therefore it is efficient. I am no expert, thus STL algorithms made my coding much easier without worrying about the common issues such as edge-cases, accidental copying, and other issues that manual loops need to cover on.
+
+Q3: the function that sorts the collection of covids receives as a parameter the field name to use; this can create errors if the client specifies an invalid field (or misspells it). How would you redesign that function to prevent the client to specify an invalid string, allowing any error to be detected by the compiler?
+Answer:
+In order to prevent this, the programmer should provide the client a list of fields that can be used for sorting. This way, the client do not need to manually type it. In the programmer side, there should be an enum or constant strings for the fields.
