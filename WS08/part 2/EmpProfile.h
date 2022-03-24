@@ -1,3 +1,12 @@
+/*
+	Name: Jexequiel Ravni Arador
+	Email: jrarador@myseneca.ca
+	ID: 127168219
+	Date Completed: March 23, 2022
+
+	I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*/
+
 #ifndef SDDS_EMPPROFILE_H
 #define SDDS_EMPPROFILE_H
 
@@ -19,7 +28,7 @@ namespace sdds {
 			os << std::setw(10) << id << std::setw(7) << name << std::endl;
 		}
 	};
-	
+
 	struct Salary {
 		std::string id;
 		double salary;
@@ -32,7 +41,8 @@ namespace sdds {
 			os << std::setw(10) << id << std::setw(10) << salary << std::endl;
 		}
 	};
-	
+
+
 	struct EmployeeWage {
 		std::string name{};
 		double m_salary{};
@@ -55,7 +65,7 @@ namespace sdds {
 			m_counter = ++recCount;
 			if (Trace)
 			{
-				std::cout << "Ovdrloaded Constructor"<<std::setw(6)<<"[" << m_counter << "]" << std::endl;
+				std::cout << "Ovdrloaded Constructor" << std::setw(6) << "[" << m_counter << "]" << std::endl;
 			}
 		}
 
@@ -65,22 +75,26 @@ namespace sdds {
 			m_counter = ++recCount;
 			if (Trace)
 			{
-				std::cout << "Copy Constructor "<< std::setw(11) << "[" << m_counter << "] from [" << copyEmpProf.m_counter <<"]" << std::endl;
+				std::cout << "Copy Constructor " << std::setw(11) << "[" << m_counter << "] from [" << copyEmpProf.m_counter << "]" << std::endl;
 			}
 		}
 
 		~EmployeeWage() {
 			if (Trace)
 			{
-				std::cout << "Destructor "<< std::setw(17) << "[" << m_counter << "]" << std::endl;
+				std::cout << "Destructor " << std::setw(17) << "[" << m_counter << "]" << std::endl;
 			}
 		}
 
 		//TODO: add a function here to check correct salary range
-		
+		void rangeValidator()const {
+			if (m_salary > 99999 || m_salary < 0) {
+				throw std::string("*** Employees salaray range is not valid");
+			}
+		}
 
 		void print(std::ostream& os)const {
-			os << std::setw(15) << name << std::setw(10) << m_salary<<std::endl;
+			os << std::setw(15) << name << std::setw(10) << m_salary << std::endl;
 		}
 
 	};

@@ -1,0 +1,36 @@
+/*
+	Name: Jexequiel Ravni Arador
+	Email: jrarador@myseneca.ca
+	ID: 127168219
+	Date Completed: March 23, 2022
+
+	I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
+*/
+
+In this workshop I was able to demonstrate my abilities to create a program component of quadratic complexity and use a smart pointer to move an object.
+
+Q1 : the advantage that smart pointer syntax provides. Use example from your code to support your explanation.
+Answer : Smart pointer is the Jesus Christ of C++, a savior of Seneca students and the destroyer of evil memories that went astray. It saved me from the trouble of manually deallocating objects. 
+
+By passing the object into a smart pointer, the smart pointer ensures that the object is deleted.  
+In the code below, the EmployeeWage is passed into a smart pointer. This ensures that empWage will be deallocated automatically by the smart pointer.
+// std::unique_ptr<EmployeeWage> empWage(new EmployeeWage(emp[i].name, sal[y].salary));
+
+Q2 : the difference between raw and smart pointer syntax in your solution.
+Answer : In my solution, raw pointers are like sheep wherein you need to manually pasture (allocate, deallocate) them or else a sheep will go astray (memory lost). 
+A smart pointer on the other hand, is like a shepherd who does the work for you. This sheperd (smart pointer) will make sure that no sheep (memory) will be lost. 
+In the code below, empWage is deallocatted manually. A try-catch block is also needed to make sure that the memory is freed after an exception occurs. This how I handled a raw pointer in my solution.
+//	try {
+//		empWage->rangeValidator();
+//		activeEmp += empWage;
+//		delete empWage;
+//	}
+//	catch (std::string msg) {
+//		delete empWage;
+//		throw std::string(msg);
+//	}
+
+On the other hand, in the code below shows how convenient it is to use a smart pointer instead. By enclosing the empWage into a smart pointer, I no longer need to add a try-catch for the deallocation of memory if an exception occurs. I love smart pointers!
+// std::unique_ptr<EmployeeWage> empWage(new EmployeeWage(emp[i].name, sal[y].salary));
+// empWage->rangeValidator();
+// activeEmp += std::move(empWage);

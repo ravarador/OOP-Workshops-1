@@ -65,4 +65,3 @@ Employee Name    Salary
            Jack  15478.54
            Kyle  35715.23
           Carol  33525.96
-

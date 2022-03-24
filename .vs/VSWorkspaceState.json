@@ -1,16 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WS04\\part2",
-    "\\WS05\\part 1",
-    "\\WS05\\part 2",
-    "\\WS06\\part 1",
-    "\\WS06\\part 2",
-    "\\WS07",
     "\\WS07\\part 1",
     "\\WS08",
     "\\WS08\\part 1"
   ],
-  "SelectedNode": "\\WS07\\part 1\\sample_output.txt",
+  "SelectedNode": "\\WS08\\part 1\\WritingRecord.cpp",
   "PreviewInSolutionExplorer": false
 }
