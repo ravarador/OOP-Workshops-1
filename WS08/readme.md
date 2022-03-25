@@ -156,7 +156,7 @@ The second part of this workshop upgrades your solution to use smart pointers.
 
 Your tasks for this part of the workshop are:
 - Add an operator `+=` overload to the `GeneratingList` module using smart pointer syntax
-- Complete the `WriteSmart()` function in the `EmpProfile` module using smart pointer syntax
+- Complete the `WriteSmart()` function in the `WritingRecord` module using smart pointer syntax
 
 These two functions should do the same thing as the raw pointer version, but using **unique smart pointers** instead.
 
