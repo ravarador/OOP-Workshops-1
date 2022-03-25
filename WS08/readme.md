@@ -81,7 +81,7 @@ The `EmpProfile` module holds employee, salary and correct wages information.
 - The `Salary` structure holds employee SIN and current salary.  
 - The `EmployeeWage` structure holds employee name and employee salary. 
 
-**Your Task:** Add a `rangeValidator()` function to the `EmploeeWage` type.  Your function reports an exception if the object’s salary is more than 9999 or less than 0. Your function receives nothing and returns nothing.
+**Your Task:** Add a `rangeValidator()` function to the `EmploeeWage` type.  Your function reports an exception if the object’s salary is more than 99,999 or less than 0. Your function receives nothing and returns nothing.
 
 
 
